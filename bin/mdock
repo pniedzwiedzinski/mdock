@@ -1,6 +1,6 @@
 #!/usr/bin/env ruby
 
-require "mdock"
+require "pniedzwiedzinski-mdock"
 
 mdock = Module.new
 mdock.extend(Mdock)

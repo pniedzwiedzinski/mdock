@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    mdock (0.1.0)
+    pniedzwiedzinski-mdock (0.1.0)
 
 GEM
   remote: https://rubygems.org/
@@ -13,7 +13,7 @@ PLATFORMS
 
 DEPENDENCIES
   bundler (~> 2.0)
-  mdock!
+  pniedzwiedzinski-mdock!
   rake (~> 10.0)
 
 BUNDLED WITH
