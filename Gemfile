@@ -1,4 +1,4 @@
 source "https://rubygems.org"
 
-# Specify your gem's dependencies in travel_inspiration.gemspec
+# Specify your gem's dependencies in mdock.gemspec
 gemspec

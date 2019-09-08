@@ -1,17 +1,41 @@
+
+lib = File.expand_path("../lib", __FILE__)
+$LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
+require "mdock/version"
+
 Gem::Specification.new do |spec|
-    spec.name          = 'mdock'
-    spec.version       = '0.0.1'
-    spec.date          = '2019-09-08'
-    spec.authors       = ["Patryk Niedźwiedziński"]
-    spec.email         = 'pniedzwiedzinski19@gmail.com'
+  spec.name          = "mdock"
+  spec.version       = Mdock::VERSION
+  spec.authors       = ["Patryk Niedźwiedziński"]
+  spec.email         = ["pniedzwiedzinski19@gmail.com"]
 
-    spec.summary       = "macOs Dock configurator"
-    spec.description   = "Configure your macOs dock with .yaml file"
-    spec.license       = 'MIT'
+  spec.summary       = %q{"macOs Dock configurator"}
+  spec.description   = %q{"Configure your macOs dock with .yaml file"}
+  spec.homepage      = "https://github.com/pniedzwiedzinski/mdock"
+  spec.license       = "MIT"
 
-    spec.files         = ["lib/mdock.rb", "lib/mdock/cli.rb", "lib/mdock/config.rb", "lib/mdock/run.rb"]
-    spec.bindir        = "bin"
-    spec.executables   = ["mdock"]
-    spec.require_paths = ["lib"]
+  # Prevent pushing this gem to RubyGems.org. To allow pushes either set the 'allowed_push_host'
+  # to allow pushing to a single host or delete this section to allow pushing to any host.
+  if spec.respond_to?(:metadata)
+    spec.metadata["allowed_push_host"] = "TODO: Set to 'http://mygemserver.com'"
 
+    spec.metadata["homepage_uri"] = spec.homepage
+    spec.metadata["source_code_uri"] = "TODO: Put your gem's public repo URL here."
+    spec.metadata["changelog_uri"] = "TODO: Put your gem's CHANGELOG.md URL here."
+  else
+    raise "RubyGems 2.0 or newer is required to protect against " \
+      "public gem pushes."
   end
+
+  # Specify which files should be added to the gem when it is released.
+  # The `git ls-files -z` loads the files in the RubyGem that have been added into git.
+  spec.files         = Dir.chdir(File.expand_path('..', __FILE__)) do
+    `git ls-files -z`.split("\x0").reject { |f| f.match(%r{^(test|spec|features)/}) }
+  end
+  spec.bindir        = "bin"
+  spec.executables   = spec.files.grep(%r{^bin/}) { |f| File.basename(f) }
+  spec.require_paths = ["lib"]
+
+  spec.add_development_dependency "bundler", "~> 2.0"
+  spec.add_development_dependency "rake", "~> 10.0"
+end
