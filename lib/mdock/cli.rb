@@ -7,9 +7,11 @@ module Mdock
 
     config.each do |key, value|
       if CLASS_MAP[value.class]
-          run(key, value)
+        run(key, value)
       end
-      print value.class
+      if value.class == Array && key == "persistent-apps"
+        persistent_apps(value)
+      end
     end
     restart()
   end

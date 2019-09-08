@@ -2,4 +2,7 @@
 
 require "mdock"
 
-main()
+mdock = Module.new
+mdock.extend(Mdock)
+
+mdock.main()
