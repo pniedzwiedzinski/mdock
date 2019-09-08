@@ -28,19 +28,9 @@ dock:
 
 ## Installation
 
-Add this line to your application's Gemfile:
-
-```ruby
-gem 'mdock'
+```bash
+$ gem install pniedzwiedzinski-mdock
 ```
-
-And then execute:
-
-    $ bundle
-
-Or install it yourself as:
-
-    $ gem install mdock
 
 ## Usage
 
