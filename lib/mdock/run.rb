@@ -1,17 +1,8 @@
-require 'yaml'
-require 'shellwords'
+require "shellwords"
+
 
 CLASS_MAP = {FalseClass => "bool", TrueClass => "bool", Fixnum => "int", Float => "float", String => "string"}
 BOOL_MAP = {true => "true", false => "false"}
-
-def parse_config(file)
-  config = YAML.load(file)
-  if !config["dock"]
-    print "Invalid config file, expects 'dock'"
-    exit
-  end
-  return config["dock"]
-end
 
 def plist_value(value)
   if !!value == value
@@ -31,15 +22,3 @@ def restart()
   system("killall Dock")
 end
 
-def main()
-  config = parse_config(File.read(ARGV[0]))
-
-  config.each do |key, value|
-    if CLASS_MAP[value.class]
-      run(key, value)
-    end
-  end
-  restart()
-end
-
-main()
