@@ -34,7 +34,9 @@ $ gem install pniedzwiedzinski-mdock
 
 ## Usage
 
-TODO: Write usage instructions here
+```bash
+mdock path/to/config.yml
+```
 
 ## Development
 
