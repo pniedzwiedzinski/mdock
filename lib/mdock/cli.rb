@@ -3,7 +3,8 @@ require_relative "run"
 
 module Mdock
   def main()
-    config = parse_config(File.read(ARGV[0]))
+    file = ARGV[0] || ENV['HOME'] + "/.config/mdock/dock.yml"
+    config = parse_config(file)
 
     config.each do |key, value|
       if CLASS_MAP[value.class]
